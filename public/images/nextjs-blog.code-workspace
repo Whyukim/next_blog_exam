@@ -1,0 +1,16 @@
+{
+  "folders": [
+	{
+		"name": "nextjs-blog",
+		"path": "../.."
+	},
+	{
+		"name": "data",
+		"path": "../../../../../Downloads/blog/data"
+	}
+],
+  "settings": {
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.enablePromptUseWorkspaceTsdk": true
+  }
+}
