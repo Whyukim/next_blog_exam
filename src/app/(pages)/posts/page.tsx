@@ -1,5 +1,10 @@
-import FilterablePosts from "../components/FilterablePosts";
-import { getAllPosts } from "../service/posts/posts";
+import FilterablePosts from "../../components/FilterablePosts";
+import { getAllPosts } from "../../service/posts/posts";
+
+export const metadata = {
+  title: "All Posts",
+  description: "포스트",
+};
 
 interface IpostsPage {}
 

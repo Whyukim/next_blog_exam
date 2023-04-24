@@ -1,10 +1,22 @@
 import PostContent from "@/app/components/PostContent";
-import { getPostData } from "@/app/service/posts/posts";
+import { getFilterPosts, getPostData } from "@/app/service/posts/posts";
+import { Metadata } from "next";
 import Image from "next/image";
 
 interface Ipage {
   params: {
     slug: string;
+  };
+}
+
+export async function generateMetadata({
+  params: { slug },
+}: Ipage): Promise<Metadata> {
+  const { title, description } = await getPostData(slug);
+
+  return {
+    title,
+    description,
   };
 }
 
@@ -31,3 +43,10 @@ async function page({ params: { slug } }: Ipage) {
 }
 
 export default page;
+
+export async function generateStaticParams() {
+  const posts = await getFilterPosts();
+  return posts.map((post) => ({
+    slug: post.path,
+  }));
+}
