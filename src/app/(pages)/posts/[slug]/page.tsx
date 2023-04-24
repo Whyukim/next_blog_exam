@@ -1,3 +1,4 @@
+import ArrowPostCard from "@/app/components/ArrowPostCard";
 import PostContent from "@/app/components/PostContent";
 import { getFilterPosts, getPostData } from "@/app/service/posts/posts";
 import { Metadata } from "next";
@@ -34,9 +35,9 @@ async function page({ params: { slug } }: Ipage) {
         height={420}
       />
       <PostContent post={post} />
-      <section>
-        {prev && <p>{prev.title}</p>}
-        {next && <p>{next.title}</p>}
+      <section className="flex shadow-md">
+        {prev && <ArrowPostCard post={prev} type="prev" />}
+        {next && <ArrowPostCard post={next} type="next" />}
       </section>
     </article>
   );
